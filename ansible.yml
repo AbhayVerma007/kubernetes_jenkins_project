@@ -1,5 +1,7 @@
 - hosts: node
-  become: true
+  become: false
+  environment:
+    KUBECONFIG: /home/ubuntu/.kube/config
   tasks:
     - name: Delete old deployment (ignore errors on first run)
       command: kubectl delete -f /home/ubuntu/Deployment.yml
