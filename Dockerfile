@@ -1,6 +1,6 @@
 FROM almalinux:9
 
-LABEL maintainer="shikhardevops@gmail.com"
+LABEL maintainer="vermaabhay085@gmail.com"
 
 RUN dnf install -y httpd zip unzip && \
     dnf clean all
