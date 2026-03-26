@@ -1,0 +1,16 @@
+- hosts: node
+  become: true
+  tasks:
+    - name: Delete old deployment (ignore errors on first run)
+      command: kubectl delete -f /home/ubuntu/Deployment.yml
+      ignore_errors: yes
+
+    - name: Delete old service (ignore errors on first run)
+      command: kubectl delete -f /home/ubuntu/Service.yml
+      ignore_errors: yes
+
+    - name: Apply deployment
+      command: kubectl apply -f /home/ubuntu/Deployment.yml
+
+    - name: Apply service
+      command: kubectl apply -f /home/ubuntu/Service.yml

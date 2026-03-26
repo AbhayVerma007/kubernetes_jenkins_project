@@ -1,0 +1,20 @@
+kind: Deployement
+apiVersion: apps/v1
+metadata:
+  name: webapp
+spec:
+  replicas: 2
+  selector:         #tells the controller which pods to manage
+    matchLabels:
+      app: webapp
+  template:
+    metadata:
+      labels:
+        app: webapp
+    spec:
+      containers:
+      - name: webapp
+        image: abhayverma007/pipeline-demo:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
